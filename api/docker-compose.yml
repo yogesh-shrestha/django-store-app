@@ -1,0 +1,40 @@
+version: '3'
+
+services: 
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    ports:
+      - 3307:3306
+    environment:
+       MYSQL_DATABASE: 'ecommerce'
+       MYSQL_USER: 'root'
+       MYSQL_ROOT_PASSWORD: 'root12345'
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - ./mysqldata/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+
+  djangoapi:
+    container_name: djangoapi
+    build: 
+      context: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - mysqldb
+    links: 
+      - mysqldb 
+    command: python manage.py runserver 0.0.0.0:8000
+
+  smtp4dev:
+    image: rnwood/smtp4dev:v3
+    ports:
+      - 5000:80
+      - 25:25
+    restart: always
+
+volumes:
+  .:
+  mysqldata:
