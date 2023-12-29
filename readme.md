@@ -3,7 +3,7 @@ I created this store app to help me improve my django skills by making a project
 
 Key features of the app: <br>
     - E-commerce platform (REST API) with backend development using <i>Django Rest Framework</i>.<br>
-    - Frontend development using <em>React JS</em><br>
+    - Frontend development using <em>React JS</em>.<br>
     - Implementation of token-based authentication using <em>Djoser</em> and <em>Simple JWT</em>. <br>
 
 You can run the store app locally on your system. You need to follow these steps:
