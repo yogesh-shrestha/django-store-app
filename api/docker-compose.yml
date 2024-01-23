@@ -13,6 +13,7 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
       - ./mysqldata/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    restart: always
 
   djangoapi:
     container_name: djangoapi
@@ -27,6 +28,7 @@ services:
     links: 
       - mysqldb 
     command: python manage.py runserver 0.0.0.0:8000
+    restart: always
 
   smtp4dev:
     image: rnwood/smtp4dev:v3
