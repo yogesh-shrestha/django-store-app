@@ -19,7 +19,7 @@ You can run the store app locally on your system. You need to follow these steps
 Development server starts at `http://localhost:8000/`. Fake SMTP Server starts in local server at (`http://localhost:5000/`) which is used for testing email sending tasks during development (https://github.com/rnwood/smtp4dev). If database is not prepopulated with dummy data for some reasons, run `docker-compose run djangoapi python manage.py seed_db`.
 
 <b>Superuser credentials </b> <br>
-username: admin<br>
+email: admin@abc.com<br>
 password: admin<br>
  
 
